@@ -258,17 +258,6 @@ github-ai-assistant/
 
 ---
 
-## 🔮 Roadmap
-
-- [ ] GraalVM Native Image（更快启动，无需 JVM）
-- [ ] Homebrew / Scoop 安装支持
-- [ ] GitHub Actions 集成
-- [ ] MCP 协议支持 (Model Context Protocol)
-- [ ] 交互式 TUI 界面
-- [ ] 支持 GitLab、Gitee
-
----
-
 ## 🤝 贡献
 
 欢迎提交 Issue 和 Pull Request！
