@@ -13,6 +13,7 @@
 - 📝 **Commit Message 生成** - 根据代码差异自动生成规范的提交信息
 - 💬 **Issue 智能管理** - 自动分类、生成回复建议、汇总分析
 - 📖 **代码/命令解释** - 解释 Git 命令或代码片段
+- 🚫 **智能 .gitignore 生成** - 自动检测项目类型，生成合适的忽略规则
 
 ## 🛠 技术栈
 
@@ -122,6 +123,22 @@ gh-ai issue --id 456 --repo owner/repo --action suggest
 gh-ai issue --repo owner/repo --action summarize
 ```
 
+### 智能生成 .gitignore
+
+```bash
+# 分析当前项目，生成 .gitignore
+gh-ai ignore
+
+# 预览生成内容，不写入文件
+gh-ai ignore --dry-run
+
+# 追加到现有 .gitignore
+gh-ai ignore --append
+
+# 跳过确认直接写入
+gh-ai ignore -y
+```
+
 ## 🏗 项目结构
 
 ```
@@ -133,13 +150,15 @@ github-ai-assistant/
 │   │   ├── CommitCommand.java
 │   │   ├── ReviewCommand.java
 │   │   ├── ExplainCommand.java
-│   │   └── IssueCommand.java
+│   │   ├── IssueCommand.java
+│   │   └── IgnoreCommand.java
 │   ├── service/                             # 业务服务
 │   │   ├── AIService.java
 │   │   ├── CommitService.java
 │   │   ├── ReviewService.java
 │   │   ├── ExplainService.java
-│   │   └── IssueService.java
+│   │   ├── IssueService.java
+│   │   └── IgnoreService.java
 │   ├── client/                              # 外部客户端
 │   │   └── GitHubClientService.java
 │   ├── model/                               # 数据模型
