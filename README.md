@@ -26,14 +26,36 @@
 
 ## 📦 快速开始
 
-### 前置条件
+### 方式一：一键安装（推荐）
 
+```bash
+curl -fsSL https://raw.githubusercontent.com/JackyST0/github-ai-assistant/main/install.sh | bash
+```
+
+安装脚本会：
+- ✅ 自动检测 Java 环境
+- ✅ 下载最新版本
+- ✅ 引导配置 API Key
+- ✅ 创建 `gh-ai` 命令
+
+### 方式二：Docker
+
+```bash
+docker run -it --rm \
+  -e OPENAI_API_KEY=your_key \
+  -e OPENAI_BASE_URL=https://api.openai.com \
+  -v $(pwd):/workspace \
+  ghcr.io/jackyst0/github-ai-assistant explain "git rebase"
+```
+
+### 方式三：手动安装
+
+<details>
+<summary>点击展开</summary>
+
+**前置条件：**
 - Java 21+
 - Maven 3.8+
-- GitHub Token（用于 API 访问）
-- OpenAI API Key 或本地 Ollama
-
-### 安装
 
 ```bash
 # 克隆项目
@@ -44,25 +66,18 @@ cd github-ai-assistant
 mvn clean package -DskipTests
 
 # 运行
-java -jar target/github-ai-assistant-0.1.0-SNAPSHOT.jar
+java -jar target/github-ai-assistant-0.1.0-SNAPSHOT.jar --help
 ```
 
-### 配置
-
-设置环境变量：
+**配置环境变量：**
 
 ```bash
-# GitHub Token (必需)
-export GITHUB_TOKEN=your_github_token
-
-# OpenAI API Key (使用 OpenAI 时必需)
 export OPENAI_API_KEY=your_openai_api_key
-
-# 或者使用本地 Ollama
-export OLLAMA_BASE_URL=http://localhost:11434
+export OPENAI_BASE_URL=https://api.openai.com  # 可选，支持代理
+export OPENAI_MODEL=gpt-4o-mini                # 可选
+export GITHUB_TOKEN=your_github_token          # 用于 PR 审查
 ```
-
-或在 `application.yml` 中配置。
+</details>
 
 ## 📖 使用方法
 

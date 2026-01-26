@@ -33,26 +33,49 @@ public class MainCommand implements Runnable {
 
     @Override
     public void run() {
+        // 检查配置状态
+        boolean hasApiKey = System.getenv("OPENAI_API_KEY") != null && !System.getenv("OPENAI_API_KEY").isBlank();
+        boolean hasGithubToken = System.getenv("GITHUB_TOKEN") != null && !System.getenv("GITHUB_TOKEN").isBlank();
+        
         System.out.println("""
             
             🤖 GitHub AI Assistant v0.1.0
-            =============================
+            ═════════════════════════════════════════
             
             AI 驱动的 GitHub 智能助手
+            """);
+        
+        // 显示配置状态
+        System.out.println("📋 配置状态：");
+        System.out.println("   AI API Key:    " + (hasApiKey ? "✅ 已配置" : "❌ 未配置"));
+        System.out.println("   GitHub Token:  " + (hasGithubToken ? "✅ 已配置" : "⚠️  未配置 (PR/Issue 功能需要)"));
+        
+        if (!hasApiKey) {
+            System.out.println("""
             
-            可用命令：
-              commit   - 根据代码变更生成 commit message
-              review   - AI 审查 Pull Request
-              explain  - 解释代码或 Git 命令
-              issue    - Issue 智能管理
+            ⚠️  首次使用请配置 AI API：
             
-            使用 'gh-ai <command> --help' 查看具体命令帮助
+               export OPENAI_API_KEY=your_api_key
+               export OPENAI_BASE_URL=https://api.openai.com  # 可选
+               export OPENAI_MODEL=gpt-4o-mini                # 可选
+            """);
+        }
+        
+        System.out.println("""
             
-            示例：
-              gh-ai commit                    # 生成 commit message
-              gh-ai review --pr 123           # 审查 PR #123
-              gh-ai explain "git rebase -i"   # 解释 git 命令
+            📖 可用命令：
+               commit   - 根据代码变更生成 commit message
+               review   - AI 审查 Pull Request
+               explain  - 解释代码或 Git 命令
+               issue    - Issue 智能管理
             
+            🚀 快速开始：
+               gh-ai explain "git rebase -i"   # 解释 git 命令
+               gh-ai commit                    # 生成 commit message
+               gh-ai review --repo owner/repo --pr 123
+            
+            💡 使用 'gh-ai <command> --help' 查看详细帮助
+            ═════════════════════════════════════════
             """);
     }
 }
