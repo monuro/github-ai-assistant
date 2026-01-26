@@ -124,32 +124,51 @@ git rebase -i HEAD~3 是一个交互式变基命令，用于修改最近 3 次�
 
 ## 📦 快速开始
 
-### 前置条件
+### 方式一：下载即用（推荐 ⭐）
 
-- Java 21+
-- Maven 3.8+
-- OpenAI API Key（或兼容的 API）
+无需安装 Java，直接下载可执行文件：
 
-### 安装
+**macOS：**
+```bash
+curl -L -o gh-ai https://github.com/JackyST0/github-ai-assistant/releases/latest/download/gh-ai-macos
+chmod +x gh-ai
+sudo mv gh-ai /usr/local/bin/
+```
+
+**Linux：**
+```bash
+curl -L -o gh-ai https://github.com/JackyST0/github-ai-assistant/releases/latest/download/gh-ai-linux
+chmod +x gh-ai
+sudo mv gh-ai /usr/local/bin/
+```
+
+**Windows：**
+下载 [gh-ai-windows.exe](https://github.com/JackyST0/github-ai-assistant/releases/latest/download/gh-ai-windows.exe)，添加到 PATH 环境变量。
+
+### 方式二：源码编译
+
+需要 Java 21+ 和 Maven 3.8+：
 
 ```bash
-# 1. 克隆项目
 git clone https://github.com/JackyST0/github-ai-assistant.git
 cd github-ai-assistant
-
-# 2. 编译
 mvn clean package -DskipTests
+alias gh-ai='java -jar ~/github-ai-assistant/target/github-ai-assistant-0.1.1.jar'
+```
 
-# 3. 配置环境变量（添加到 ~/.zshrc 或 ~/.bashrc）
+### 配置 API Key
+
+```bash
+# 添加到 ~/.zshrc 或 ~/.bashrc
 export OPENAI_API_KEY=your_api_key
 export OPENAI_BASE_URL=https://api.openai.com  # 可选，支持第三方 API
 export OPENAI_MODEL=gpt-4o-mini                # 可选
+```
 
-# 4. 创建别名
-alias gh-ai='java -jar ~/github-ai-assistant/target/github-ai-assistant-0.1.1.jar'
-
-# 5. 验证安装
-source ~/.zshrc && gh-ai --help
+验证安装：
+```bash
+source ~/.zshrc
+gh-ai --help
 ```
 
 ---
