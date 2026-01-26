@@ -13,6 +13,7 @@ import picocli.CommandLine.Option;
  *   gh-ai explain    - 解释代码或命令
  *   gh-ai issue      - Issue 管理
  *   gh-ai ignore     - 智能生成 .gitignore
+ *   gh-ai readme     - 智能生成 README.md
  */
 @Component
 @Command(
@@ -25,7 +26,8 @@ import picocli.CommandLine.Option;
         ReviewCommand.class,
         ExplainCommand.class,
         IssueCommand.class,
-        IgnoreCommand.class
+        IgnoreCommand.class,
+        ReadmeCommand.class
     }
 )
 public class MainCommand implements Runnable {
@@ -71,11 +73,13 @@ public class MainCommand implements Runnable {
                explain  - 解释代码或 Git 命令
                issue    - Issue 智能管理
                ignore   - 智能生成 .gitignore 文件
+               readme   - 智能生成 README.md 文件
             
             🚀 快速开始：
                gh-ai explain "git rebase -i"   # 解释 git 命令
                gh-ai commit                    # 生成 commit message
                gh-ai ignore                    # 生成 .gitignore
+               gh-ai readme                    # 生成 README.md
                gh-ai review --repo owner/repo --pr 123
             
             💡 使用 'gh-ai <command> --help' 查看详细帮助

@@ -14,6 +14,7 @@
 - 💬 **Issue 智能管理** - 自动分类、生成回复建议、汇总分析
 - 📖 **代码/命令解释** - 解释 Git 命令或代码片段
 - 🚫 **智能 .gitignore 生成** - 自动检测项目类型，生成合适的忽略规则
+- 📄 **智能 README 生成** - 分析项目结构，自动生成专业的 README 文档
 
 ## 🛠 技术栈
 
@@ -139,6 +140,22 @@ gh-ai ignore --append
 gh-ai ignore -y
 ```
 
+### 智能生成 README
+
+```bash
+# 分析当前项目，生成 README.md
+gh-ai readme
+
+# 预览生成内容，不写入文件
+gh-ai readme --dry-run
+
+# 生成英文 README
+gh-ai readme -l en
+
+# 跳过确认直接写入
+gh-ai readme -y
+```
+
 ## 🏗 项目结构
 
 ```
@@ -151,14 +168,16 @@ github-ai-assistant/
 │   │   ├── ReviewCommand.java
 │   │   ├── ExplainCommand.java
 │   │   ├── IssueCommand.java
-│   │   └── IgnoreCommand.java
+│   │   ├── IgnoreCommand.java
+│   │   └── ReadmeCommand.java
 │   ├── service/                             # 业务服务
 │   │   ├── AIService.java
 │   │   ├── CommitService.java
 │   │   ├── ReviewService.java
 │   │   ├── ExplainService.java
 │   │   ├── IssueService.java
-│   │   └── IgnoreService.java
+│   │   ├── IgnoreService.java
+│   │   └── ReadmeService.java
 │   ├── client/                              # 外部客户端
 │   │   └── GitHubClientService.java
 │   ├── model/                               # 数据模型
