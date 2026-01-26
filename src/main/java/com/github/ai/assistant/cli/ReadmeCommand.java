@@ -93,25 +93,29 @@ public class ReadmeCommand implements Callable<Integer> {
                 return 0;
             }
 
-            // 检查是否存在现有文件
+            // 检查是否存在现有文件，询问是否覆盖
             Path readmePath = projectPath.resolve(outputFile);
-            if (Files.exists(readmePath) && !autoConfirm) {
+            boolean fileExists = Files.exists(readmePath);
+            
+            if (fileExists && !autoConfirm) {
                 ConsoleUtils.warn("检测到已存在 " + outputFile + " 文件");
                 boolean shouldOverwrite = ConsoleUtils.confirm("是否覆盖现有文件?", false);
                 if (!shouldOverwrite) {
                     ConsoleUtils.info("已取消");
                     return 0;
                 }
-            }
-
-            // 确认写入
-            boolean shouldWrite = autoConfirm || ConsoleUtils.confirm("\n是否写入到 " + outputFile + "?", true);
-
-            if (shouldWrite) {
+                // 用户选择覆盖，直接写入
                 Files.writeString(readmePath, readmeContent);
-                ConsoleUtils.success(outputFile + " 已生成！");
+                ConsoleUtils.success(outputFile + " 已覆盖！");
             } else {
-                ConsoleUtils.info("已取消");
+                // 文件不存在或 autoConfirm，确认写入
+                boolean shouldWrite = autoConfirm || ConsoleUtils.confirm("\n是否写入到 " + outputFile + "?", true);
+                if (shouldWrite) {
+                    Files.writeString(readmePath, readmeContent);
+                    ConsoleUtils.success(outputFile + " 已生成！");
+                } else {
+                    ConsoleUtils.info("已取消");
+                }
             }
 
             return 0;
