@@ -1,0 +1,16 @@
+# 本地配置示例
+# 复制此文件为 application-local.yml 并填入你的密钥
+# application-local.yml 已被 .gitignore 忽略，不会提交到 Git
+
+spring:
+  ai:
+    openai:
+      # 你的 OpenAI API Key
+      api-key: sk-your-openai-api-key-here
+      # 如果需要使用代理，修改这里
+      base-url: https://api.openai.com
+
+app:
+  github:
+    # 你的 GitHub Personal Access Token
+    token: ghp_your-github-token-here

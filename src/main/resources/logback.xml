@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 关闭所有 Spring 日志 -->
+    <logger name="org" level="OFF"/>
+    
+    <!-- 只保留应用日志 -->
+    <logger name="com.github.ai.assistant" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <root level="OFF"/>
+</configuration>

@@ -1,0 +1,8 @@
+# 开发环境配置
+
+logging:
+  level:
+    root: INFO
+    com.github.ai.assistant: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss} [%level] %logger{36} - %msg%n"

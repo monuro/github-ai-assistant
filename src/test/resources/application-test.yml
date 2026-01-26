@@ -1,0 +1,42 @@
+# 测试环境配置
+
+spring:
+  application:
+    name: github-ai-assistant-test
+  
+  main:
+    web-application-type: none
+    allow-bean-definition-overriding: true
+
+  # 测试环境 AI 配置（使用 mock）
+  ai:
+    openai:
+      api-key: test-key
+      base-url: http://localhost:8089
+      chat:
+        options:
+          model: gpt-4o-mini
+          temperature: 0.7
+    
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          model: llama3
+          temperature: 0.7
+
+# 应用配置
+app:
+  github:
+    token: test-github-token
+    api-url: https://api.github.com
+  
+  ai:
+    default-model: openai
+    default-language: zh
+
+# 日志配置
+logging:
+  level:
+    root: WARN
+    com.github.ai.assistant: DEBUG

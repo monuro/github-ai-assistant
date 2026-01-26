@@ -1,0 +1,65 @@
+# GitHub AI Assistant 配置文件
+
+spring:
+  application:
+    name: github-ai-assistant
+  
+  main:
+    # CLI 应用不需要 web 服务器
+    web-application-type: none
+    # 允许 bean 定义覆盖
+    allow-bean-definition-overriding: true
+    # 关闭 banner
+    banner-mode: off
+    # 关闭启动信息日志
+    log-startup-info: false
+    # 懒加载，加快启动
+    lazy-initialization: true
+
+  # OpenAI 配置
+  ai:
+    openai:
+      # API Key - 可以直接填写，或使用环境变量 OPENAI_API_KEY
+      api-key: ${OPENAI_API_KEY:}
+      # 自定义 API 地址（用于代理或兼容 API，如 https://api.openai-proxy.com）
+      base-url: ${OPENAI_BASE_URL:https://api.openai.com}
+      chat:
+        options:
+          # 模型选择: gpt-4o, gpt-4o-mini, gpt-4-turbo, gpt-3.5-turbo, deepseek-chat
+          model: ${OPENAI_MODEL:gpt-4o-mini}
+          temperature: 0.7
+    
+    # Ollama 配置（本地模型，免费）
+    ollama:
+      base-url: ${OLLAMA_BASE_URL:http://localhost:11434}
+      chat:
+        options:
+          # 模型选择: llama3, qwen2, codellama, mistral
+          model: llama3
+          temperature: 0.7
+
+# 应用配置
+app:
+  github:
+    # GitHub Token - 可以直接填写，或使用环境变量 GITHUB_TOKEN
+    token: ${GITHUB_TOKEN:}
+    # GitHub API 地址（用于 GitHub Enterprise）
+    api-url: https://api.github.com
+    # 默认仓库（可选，格式: owner/repo）
+    default-repository: 
+  
+  ai:
+    # 默认使用的 AI 模型: openai 或 ollama
+    default-model: openai
+    # 默认语言: zh 或 en
+    default-language: zh
+
+# 日志配置
+logging:
+  level:
+    root: OFF
+    org.springframework: OFF
+    org.springframework.boot: OFF
+    com.github.ai.assistant: INFO
+  pattern:
+    console: "%msg%n"
