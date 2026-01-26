@@ -5,6 +5,7 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/JackyST0/github-ai-assistant/actions/workflows/build.yml"><img src="https://github.com/JackyST0/github-ai-assistant/actions/workflows/build.yml/badge.svg" alt="Build"></a>
   <a href="https://github.com/JackyST0/github-ai-assistant/stargazers"><img src="https://img.shields.io/github/stars/JackyST0/github-ai-assistant?style=social" alt="Stars"></a>
   <a href="https://github.com/JackyST0/github-ai-assistant/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"></a>
   <a href="https://openjdk.java.net/"><img src="https://img.shields.io/badge/Java-21+-orange.svg" alt="Java"></a>
