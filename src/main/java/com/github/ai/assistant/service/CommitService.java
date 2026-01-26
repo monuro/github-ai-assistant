@@ -194,9 +194,7 @@ public class CommitService {
      * 构建系统提示词
      */
     private String buildSystemPrompt(String language, String type) {
-        String langInstruction = language.equals("zh") 
-            ? "请用中文生成 commit message。" 
-            : "Please generate commit message in English.";
+        boolean isChinese = language.equals("zh");
         
         String typeInstruction = type.equals("conventional") 
             ? """
@@ -207,21 +205,41 @@ public class CommitService {
               
               类型包括：feat, fix, docs, style, refactor, test, chore
               """
-            : "生成简洁的一行 commit message。";
+            : (isChinese ? "生成简洁的一行 commit message。" : "Generate a concise one-line commit message.");
         
-        return """
-            你是一个专业的软件工程师，擅长写清晰、规范的 Git commit message。
-            
-            %s
-            
-            %s
-            
-            规则：
-            1. subject 不超过 50 个字符
-            2. body 解释 "为什么" 而不是 "做了什么"
-            3. 使用祈使句（如 "Add feature" 而不是 "Added feature"）
-            4. 不要在末尾加句号
-            """.formatted(langInstruction, typeInstruction);
+        if (isChinese) {
+            return """
+                你是一个专业的软件工程师，擅长写清晰、规范的 Git commit message。
+                
+                **重要：必须使用中文生成 commit message 的 subject 和 body 部分。**
+                
+                %s
+                
+                规则：
+                1. type 和 scope 保持英文（如 feat, fix, chore）
+                2. subject 和 body 必须用中文
+                3. subject 不超过 50 个字符
+                4. body 解释"为什么"而不是"做了什么"
+                5. 不要在末尾加句号
+                
+                示例：
+                chore(build): 移除 Docker 相关配置
+                
+                项目不再需要 Docker 部署方式，简化构建流程。
+                """.formatted(typeInstruction);
+        } else {
+            return """
+                You are a professional software engineer skilled at writing clear, standard Git commit messages.
+                
+                %s
+                
+                Rules:
+                1. Subject should not exceed 50 characters
+                2. Body explains "why" not "what"
+                3. Use imperative mood (e.g., "Add feature" not "Added feature")
+                4. Do not end with a period
+                """.formatted(typeInstruction);
+        }
     }
 
     /**

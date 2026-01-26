@@ -26,23 +26,6 @@
 
 ## 📦 快速开始
 
-### 方式一：一键安装（推荐）
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/JackyST0/github-ai-assistant/main/install.sh | bash
-```
-
-安装脚本会：
-- ✅ 自动检测 Java 环境
-- ✅ 下载最新版本
-- ✅ 引导配置 API Key
-- ✅ 创建 `gh-ai` 命令
-
-### 方式二：手动安装
-
-<details>
-<summary>点击展开</summary>
-
 **前置条件：**
 - Java 21+
 - Maven 3.8+
@@ -59,15 +42,22 @@ mvn clean package -DskipTests
 java -jar target/github-ai-assistant-0.1.0-SNAPSHOT.jar --help
 ```
 
-**配置环境变量：**
+**配置环境变量（添加到 `~/.zshrc` 或 `~/.bashrc`）：**
 
 ```bash
+# AI 服务配置（必需）
 export OPENAI_API_KEY=your_openai_api_key
-export OPENAI_BASE_URL=https://api.openai.com  # 可选，支持代理
-export OPENAI_MODEL=gpt-4o-mini                # 可选
-export GITHUB_TOKEN=your_github_token          # 用于 PR 审查
+export OPENAI_BASE_URL=https://api.openai.com  # 可选，支持第三方代理
+export OPENAI_MODEL=gpt-4o-mini                # 可选，默认 gpt-4o-mini
+
+# GitHub Token（PR 审查功能需要）
+export GITHUB_TOKEN=your_github_token
+
+# 创建命令别名（将路径改为你的实际路径）
+alias gh-ai='java -jar ~/github-ai-assistant/target/github-ai-assistant-0.1.0-SNAPSHOT.jar'
 ```
-</details>
+
+配置完成后，执行 `source ~/.zshrc` 使配置生效，然后运行 `gh-ai --help` 验证安装。
 
 ## 📖 使用方法
 
