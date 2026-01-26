@@ -38,17 +38,7 @@ curl -fsSL https://raw.githubusercontent.com/JackyST0/github-ai-assistant/main/i
 - ✅ 引导配置 API Key
 - ✅ 创建 `gh-ai` 命令
 
-### 方式二：Docker
-
-```bash
-docker run -it --rm \
-  -e OPENAI_API_KEY=your_key \
-  -e OPENAI_BASE_URL=https://api.openai.com \
-  -v $(pwd):/workspace \
-  ghcr.io/jackyst0/github-ai-assistant explain "git rebase"
-```
-
-### 方式三：手动安装
+### 方式二：手动安装
 
 <details>
 <summary>点击展开</summary>
