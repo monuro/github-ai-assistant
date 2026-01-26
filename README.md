@@ -153,21 +153,43 @@ sudo mv gh-ai /usr/local/bin/
 git clone https://github.com/JackyST0/github-ai-assistant.git
 cd github-ai-assistant
 mvn clean package -DskipTests
+```
+
+然后添加别名到 `~/.zshrc` 或 `~/.bashrc`：
+```bash
 alias gh-ai='java -jar ~/github-ai-assistant/target/github-ai-assistant-0.1.1.jar'
 ```
 
-### 配置 API Key
+### 配置环境变量（必须）
+
+无论使用哪种安装方式，都需要配置 AI 服务的 API Key。
+
+编辑 `~/.zshrc` 或 `~/.bashrc`，添加以下内容：
 
 ```bash
-# 添加到 ~/.zshrc 或 ~/.bashrc
+# === GitHub AI Assistant 配置 ===
+
+# AI 服务配置（必须）
 export OPENAI_API_KEY=your_api_key
-export OPENAI_BASE_URL=https://api.openai.com  # 可选，支持第三方 API
-export OPENAI_MODEL=gpt-4o-mini                # 可选
+
+# 自定义 API 地址（可选，默认为 OpenAI 官方）
+# export OPENAI_BASE_URL=https://api.openai.com
+
+# 自定义模型（可选，默认为 gpt-4o-mini）
+# export OPENAI_MODEL=gpt-4o-mini
+
+# GitHub Token（仅 PR 审查和 Issue 功能需要）
+# export GITHUB_TOKEN=your_github_token
 ```
 
-验证安装：
+使配置生效：
 ```bash
 source ~/.zshrc
+```
+
+### 验证安装
+
+```bash
 gh-ai --help
 ```
 
@@ -256,7 +278,7 @@ export OPENAI_MODEL=your-model-name
 | Spring Boot | 3.3+ | 应用框架 |
 | Spring AI | 1.0+ | AI 集成框架 |
 | Picocli | 4.7+ | CLI 框架 |
-| GitHub API | - | hub4j/github-api |
+| GitHub API | 1.326 | hub4j/github-api |
 
 ---
 
