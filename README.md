@@ -145,7 +145,7 @@ export OPENAI_BASE_URL=https://api.openai.com  # 可选，支持第三方 API
 export OPENAI_MODEL=gpt-4o-mini                # 可选
 
 # 4. 创建别名
-alias gh-ai='java -jar ~/github-ai-assistant/target/github-ai-assistant-0.1.0-SNAPSHOT.jar'
+alias gh-ai='java -jar ~/github-ai-assistant/target/github-ai-assistant-0.1.0.jar'
 
 # 5. 验证安装
 source ~/.zshrc && gh-ai --help
