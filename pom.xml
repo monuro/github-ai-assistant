@@ -13,7 +13,7 @@
 
     <groupId>com.github.ai</groupId>
     <artifactId>github-ai-assistant</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <packaging>jar</packaging>
 
     <name>GitHub AI Assistant</name>
