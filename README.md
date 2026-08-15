@@ -1,5 +1,7 @@
 # 🤖 github-ai-assistant - Your Smart GitHub Helper
 
+[![SafeSkill 90/100](https://img.shields.io/badge/SafeSkill-90%2F100_Verified%20Safe-brightgreen)](https://safeskill.dev/scan/monuro-github-ai-assistant)
+
 ## 🚀 Getting Started
 
 Welcome to `github-ai-assistant`, your intelligent command-line assistant for GitHub. This tool uses AI to make your coding life easier with smart features like generating commit messages, reviewing pull requests, and explaining Git commands. 
